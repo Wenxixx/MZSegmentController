@@ -25,6 +25,12 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+/**
+ *  设置一个跟SegmentController中HeaderView一样高度的headerView，
+ *  以达到滑动tableView时SegmentController中HeaderView的frame.origin.y的值与tableView.contentOffSet.y改变一致
+ *
+ *  @return UIView
+ */
 -(UIView *)setTableHeaderView
 {
     UIView *View = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 131*RatioX)];
@@ -40,6 +46,12 @@
 
 
 #pragma mark - MZSegmentControllerDelegate
+
+/**
+ *  确保MZSegmentController的scrollView上的多个controller实现 同步隐藏headerView，或露出的高度一致
+ *
+ *  @param offset visiable controller contentOffset.y的值
+ */
 - (void)setTableContentOffSet:(CGFloat)offset
 {
     if (offset >= self.tableView.tableHeaderView.height) {
@@ -50,7 +62,7 @@
             }
         }
     }
-    else{
+    else {
         [self.tableView setContentOffset:CGPointMake(0, offset)];
     }
     

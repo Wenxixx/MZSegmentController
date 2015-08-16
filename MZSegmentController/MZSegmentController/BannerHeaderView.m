@@ -52,13 +52,11 @@
             for (int i=0; i<_currentBannerCount; i++) {
                 if (i < _bannerImgArray.count) {
                     UIButton *button = (UIButton *)[self viewWithTag:10000+i];
-//                    [((UIImageView *)button.subviews[0]) sd_setImageWithURL:bannerImgArray[i]];
                     [((UIImageView *)button.subviews[0]) setImage:[UIImage imageNamed:@"icon_bannerInfoImg"]];
                 } else if (i == _bannerImgArray.count) {
                     UIButton *button = (UIButton *)[self viewWithTag:10000+i];
                     ;
                     [((UIImageView *)button.subviews[0]) setImage:[UIImage imageNamed:@"icon_bannerInfoImg"]];
-//                    [((UIImageView *)button.subviews[0]) sd_setImageWithURL:bannerImgArray[0]];
                     
                 } else {
                     UIButton *button = (UIButton *)[self viewWithTag:10000+i];
@@ -76,7 +74,6 @@
                     UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.width, self.height)];
                     button.tag = 10000 + i;
                     [button addSubview:imgView];
-//                    [imgView sd_setImageWithURL:[NSURL URLWithString:(i == bannerImgArray.count) ? bannerImgArray[0] :  bannerImgArray[i]]];
                     button.userInteractionEnabled = YES;
                     [button addTarget:self action:@selector(pushToInlineWeb:) forControlEvents:UIControlEventTouchUpInside];
                     [_bannerScrollView addSubview:button];

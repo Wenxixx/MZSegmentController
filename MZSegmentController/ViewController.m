@@ -26,6 +26,7 @@
     BaseViewController *tabViewVC3 = [[BaseViewController alloc] initWithNibName:@"BaseViewController" bundle:nil];
     
     self.pager = [[MZSegmentController alloc] initWithControllers:tabViewVC1,tabViewVC2,tabViewVC3,nil];
+    
     [self.view addSubview:_pager.view];
 
     // Do any additional setup after loading the view, typically from a nib.
@@ -38,7 +39,7 @@
     [_btnCity.titleLabel setFont:[UIFont systemFontOfSize:13.f]];
     [_btnCity addTarget:self action:@selector(changeCityBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [_btnCity setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    [_btnCity setFrame:CGRectMake(0, 0, 20+ 21 + 10, 21)];
+    [_btnCity setFrame:CGRectMake(0, 0, 60, 44)];
     [_btnCity setImage:[UIImage imageNamed:@"location_pic"] forState:UIControlStateNormal];
     [_btnCity setTitle:@"深圳" forState:UIControlStateNormal];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:_btnCity];

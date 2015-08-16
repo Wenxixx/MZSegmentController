@@ -69,10 +69,7 @@ const void* _MZSEGMENTPAGE_CURRNTPAGE_SCROLLVIEWOFFSET = &_MZSEGMENTPAGE_CURRNTP
     
     self.currentDisplayController = self.controllers[0];
     [self addObserverForPageController:self.currentDisplayController];
-    
-    //添加下拉刷新
-    //    [self addTableViewHeader];
-    
+        
     // headerView
     _currentIndex = 0;
     _headerView = [[BannerHeaderView alloc]initWithFrame:CGRectMake(0, _topBarHeight, self.view.width, 92*RatioX)];
@@ -130,14 +127,12 @@ const void* _MZSEGMENTPAGE_CURRNTPAGE_SCROLLVIEWOFFSET = &_MZSEGMENTPAGE_CURRNTP
 {
     
     [_contentScrollView setContentOffset:CGPointMake(currentIndex * _contentScrollView.frame.size.width, 0.) animated:YES];
-    //调整另外viewController contentOffSet
+    
+    //调整即将要显示viewController的 contentOffSet  显示或隐藏 headerView
     CGFloat offsetY = [[self.currentDisplayController currentScrollView] contentOffset].y;
-    for (int i = 0; i<[_controllers count]; i++) {
-        if (i!=_currentIndex) {
-            UIViewController <MZSegmentControllerDelegate> *vc = _controllers[i];
-            [vc setTableContentOffSet:offsetY];
-        }
-    }
+    UIViewController <MZSegmentControllerDelegate> *vc = _controllers[currentIndex];
+    [vc setTableContentOffSet:offsetY];
+
     //刷新首页导航条上选择
     [self.delegate refreshHomePageSegmentControl:currentIndex];
     //更新segmentView上选择
