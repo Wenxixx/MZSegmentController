@@ -19,28 +19,24 @@
     
 
 ### `BaseViewController-->contain UIScrollView`
-     /**
-      *  设置一个跟SegmentController中HeaderView一样高度的headerView，
+  
+   *  给tableview设置一个跟SegmentController中HeaderView一样高度的headerView，
+   *  保证滑动tableView时SegmentController中HeaderView的frame.origin.y的值与tableView.contentOffSet.y改变保持一致(障眼法)
+   *  @return UIView
       
-      *  以达到滑动tableView时SegmentController中HeaderView的frame.origin.y的值与tableView.contentOffSet.y改变一致
-      *
-      *  @return UIView
-      
-      */
-      
-     -(UIView *)setTableHeaderView
-     {
+    
+    	 -(UIView *)setTableHeaderView
+    	 {
          
-     }
+    	 }
      
    
-   ----
    
    
 ### `#pragma mark - MZSegmentControllerDelegate`
 
 	  /**
- 	  	*  确保MZSegmentController的scrollView上的多个controller实现 同步隐藏			headerView，或露出的高度一致
+ 	  	*  确保MZSegmentController的scrollView上的多个controller实现同步隐藏			headerView，或露出的高度一致
   	 	*
    		*  @param offset visiable controller contentOffset.y的值
   	 	*/
