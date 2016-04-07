@@ -18,7 +18,7 @@
     [self.view addSubview:_pager.view];
     
 
-###BaseViewController-->contain UIScrollView
+### `BaseViewController-->contain UIScrollView`
      /**
       *  设置一个跟SegmentController中HeaderView一样高度的headerView，
       
@@ -37,21 +37,22 @@
    ----
    
    
-###\#pragma mark - MZSegmentControllerDelegate
+### `#pragma mark - MZSegmentControllerDelegate`
 
-  /**
-   *  确保MZSegmentController的scrollView上的多个controller实现 同步隐藏headerView，或露出的高度一致
-   *
-   *  @param offset visiable controller contentOffset.y的值
-   */
+	  /**
+ 	  	*  确保MZSegmentController的scrollView上的多个controller实现 同步隐藏			headerView，或露出的高度一致
+  	 	*
+   		*  @param offset visiable controller contentOffset.y的值
+  	 	*/
   
-       \- (void)setTableContentOffSet:(CGFloat)offset
+       - (void)setTableContentOffSet:(CGFloat)offset
        {
       
        }
 
-###\#pragma mark - obsever delegate methods
-    //headerView  跟随当前显示tableView滑动而滑动
+### `#pragma mark - obsever delegate methods`
+   //headerView  跟随当前显示tableView滑动而滑动
+    
       -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
     {
       if (context == _MZSEGMENTPAGE_CURRNTPAGE_SCROLLVIEWOFFSET) {
