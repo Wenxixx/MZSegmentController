@@ -1,13 +1,13 @@
 # MZSegmentController
 
-#Description
+# Description
   类似AppStore详情页结构，左右视图可滑动，可tab切换
   可自定义segmentHeaderView，多视图共用，header纵向可滑动
   
   
 # <a id="Examples"></a> Examples【使用】
 
-###init
+### init
 
     BaseViewController *tabViewVC1 = [[BaseViewController alloc] initWithNibName:@"BaseViewController"   bundle:nil];
     BaseViewController *tabViewVC2 = [[BaseViewController alloc] initWithNibName:@"BaseViewController" bundle:nil];
@@ -47,9 +47,11 @@
        }
 
 ### `#pragma mark - obsever delegate methods`
-   //headerView  跟随当前显示tableView滑动而滑动
+  
+  ```
+  //headerView  跟随当前显示tableView滑动而滑动
     
-      -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+    -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
     {
       if (context == _MZSEGMENTPAGE_CURRNTPAGE_SCROLLVIEWOFFSET) {
           CGPoint offset = [change[NSKeyValueChangeNewKey] CGPointValue];
@@ -78,7 +80,8 @@
               [self.delegate showIvLogo:NO];
           }
       }
-  }
+   }
+  ```
 
 
 
